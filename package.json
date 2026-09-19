@@ -1,0 +1,15 @@
+{
+  "name": "conect-obra-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Conect Obra - marketplace web para construção civil",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

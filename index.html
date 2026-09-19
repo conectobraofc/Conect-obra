@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Conect Obra | Construção sem complicação</title>
+<meta name="description" content="Conect Obra conecta clientes, profissionais, empresas e fornecedores da construção civil.">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="#home"><span class="mark">CO</span><span>Conect <b>Obra</b></span></a>
+  <nav id="nav">
+    <a href="#home">Início</a><a href="#obras">Obras</a><a href="#profissionais">Profissionais</a><a href="#como">Como funciona</a>
+    <button class="btn ghost" onclick="openAuth('login')">Entrar</button><button class="btn" onclick="openAuth('register')">Criar conta</button>
+  </nav>
+  <button class="menu" onclick="toggleMenu()">☰</button>
+</header>
+
+<main>
+<section id="home" class="hero">
+ <div class="hero-copy">
+  <span class="pill">🏗️ Construção civil conectada</span>
+  <h1>Encontre quem faz.<br><span>Construa melhor.</span></h1>
+  <p>O Conect Obra aproxima clientes, profissionais, empresas e fornecedores para transformar projetos em obras.</p>
+  <div class="actions"><button class="btn big" onclick="openAuth('register')">Começar agora</button><a class="btn ghost big" href="#obras">Ver oportunidades</a></div>
+  <div class="stats"><div><b>Brasil</b><small>alcance nacional</small></div><div><b>6 perfis</b><small>no ecossistema</small></div><div><b>24h</b><small>conexão rápida</small></div></div>
+ </div>
+ <div class="hero-card">
+   <div class="card-top"><span>📍 Sua próxima obra</span><span class="dot">●</span></div>
+   <h3>Preciso de uma equipe para reforma</h3><p>São Paulo • Reforma residencial</p>
+   <div class="price">Orçamento <b>A combinar</b></div>
+   <div class="avatar-row"><span class="avatar">👷</span><span class="avatar">🏢</span><span class="avatar">👨‍🔧</span><span class="more">+12 profissionais</span></div>
+   <button class="btn full" onclick="openAuth('register')">Quero participar</button>
+ </div>
+</section>
+
+<section id="obras" class="section">
+ <div class="section-head"><div><span class="eyebrow">OPORTUNIDADES</span><h2>Obras e serviços</h2><p>Encontre projetos publicados e envie sua proposta.</p></div><button class="btn" onclick="requireAuth(()=>openJobModal())">+ Publicar obra</button></div>
+ <div class="filters"><input id="jobSearch" placeholder="Buscar obra, serviço ou palavra-chave" oninput="loadJobs()"><input id="citySearch" placeholder="Cidade" oninput="loadJobs()"><select id="catSearch" onchange="loadJobs()"><option value="">Todas as categorias</option><option>Construção</option><option>Reforma</option><option>Elétrica</option><option>Hidráulica</option><option>Pintura</option><option>Arquitetura</option><option>Engenharia</option></select></div>
+ <div id="jobs" class="grid"></div>
+</section>
+
+<section id="profissionais" class="section alt">
+ <div class="section-head"><div><span class="eyebrow">REDE PROFISSIONAL</span><h2>Encontre especialistas</h2><p>Pesquise profissionais, empresas e fornecedores.</p></div></div>
+ <div class="filters"><input id="proSearch" placeholder="Nome, profissão, serviço ou cidade" oninput="loadProfessionals()"></div>
+ <div id="professionals" class="grid"></div>
+</section>
+
+<section id="como" class="section">
+ <div class="center"><span class="eyebrow">SIMPLES E DIRETO</span><h2>Como funciona</h2></div>
+ <div class="steps"><div><span>01</span><h3>Publique</h3><p>Descreva sua obra, localização, categoria e orçamento.</p></div><div><span>02</span><h3>Conecte</h3><p>Profissionais encontram sua oportunidade e enviam propostas.</p></div><div><span>03</span><h3>Escolha</h3><p>Compare propostas, converse e escolha quem fará o serviço.</p></div><div><span>04</span><h3>Avalie</h3><p>Depois do serviço, registre sua experiência na plataforma.</p></div></div>
+</section>
+
+<section id="dashboard" class="section dash hidden">
+ <div class="section-head"><div><span class="eyebrow">MINHA CONTA</span><h2 id="welcome">Dashboard</h2></div><button class="btn ghost" onclick="logout()">Sair</button></div>
+ <div class="dash-grid">
+  <div class="panel"><h3>Resumo</h3><div id="summary"></div></div>
+  <div class="panel"><h3>Minhas obras</h3><div id="myJobs"></div></div>
+  <div class="panel"><h3>Propostas recebidas</h3><div id="received"></div></div>
+  <div class="panel"><h3>Propostas enviadas</h3><div id="sent"></div></div>
+ </div>
+</section>
+</main>
+
+<footer><div class="brand"><span class="mark">CO</span><span>Conect <b>Obra</b></span></div><p>Conectando pessoas, empresas e oportunidades na construção civil.</p><span>© 2026 Conect Obra</span></footer>
+
+<div id="modal" class="modal hidden"><div class="modal-box"><button class="close" onclick="closeModal()">×</button><div id="modalContent"></div></div></div>
+<div id="toast"></div>
+<script src="/app.js"></script>
+</body></html>
